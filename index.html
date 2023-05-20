@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try with API</title>
+  </head>
+  <body>
+    <h1 id="heading">Playing with API</h1>
+    <p id="paragrap">This is paragraph</p>
+    <script>
+      function doSomething() {
+        fetch("http://www.boredapi.com/api/activity/")
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById("heading").innerText = data.activity;
+            document.getElementById("paragrap").innerText = data.type;
+          });
+      }
+      doSomething();
+      setInterval(() => {
+        doSomething();
+      }, 1000);
+    </script>
+  </body>
+</html>
